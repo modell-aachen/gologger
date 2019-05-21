@@ -1,0 +1,13 @@
+[Unit]
+Description=Modell Aachen log reporter
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/logreport
+Environment=RAVEN_DVN=
+User=www-data
+ExecStart=/usr/local/bin/logreport
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

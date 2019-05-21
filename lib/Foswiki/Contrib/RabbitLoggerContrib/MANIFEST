@@ -1,0 +1,13 @@
+data/System/RabbitLoggerContrib.txt
+lib/Foswiki/Logger/RabbitMQLogger/Connection.pm
+lib/Foswiki/Logger/RabbitMQLogger/StdErrDumper.pm
+lib/Foswiki/Logger/RabbitMQLogger/EventIterator.pm
+lib/Foswiki/Logger/RabbitMQLogger/Reader.pm
+lib/Foswiki/Logger/RabbitMQLogger.pm
+lib/Foswiki/Contrib/RabbitLoggerContrib/build.pl
+lib/Foswiki/Contrib/RabbitLoggerContrib/Config.spec
+lib/Foswiki/Contrib/RabbitLoggerContrib.pm
+resources/gologger/logstore 0655
+resources/gologger/logreport 0655
+tools/logtail 0655
+tools/logdump 0655
