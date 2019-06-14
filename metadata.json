@@ -1,0 +1,105 @@
+{
+   "version" : "1.0",
+   "dependencies" : [],
+   "description" : "Logger using RabbitMQ + a bunch of microservices",
+   "release" : "1.0",
+   "manifest" : [
+      {
+         "md5" : "68c16dae4bfd3979ba0e4bf771ea89e7",
+         "description" : "",
+         "name" : "data/System/RabbitLoggerContrib.txt",
+         "permissions" : "0664",
+         "quotedName" : "data/System/RabbitLoggerContrib.txt"
+      },
+      {
+         "name" : "lib/Foswiki/Logger/RabbitMQLogger/Connection.pm",
+         "md5" : "69cdef3575834502a796f59658f2d22f",
+         "description" : "",
+         "permissions" : "0444",
+         "quotedName" : "lib/Foswiki/Logger/RabbitMQLogger/Connection.pm"
+      },
+      {
+         "permissions" : "0444",
+         "md5" : "e3a72b42b8329bd97be119471821e529",
+         "description" : "",
+         "name" : "lib/Foswiki/Logger/RabbitMQLogger/StdErrDumper.pm",
+         "quotedName" : "lib/Foswiki/Logger/RabbitMQLogger/StdErrDumper.pm"
+      },
+      {
+         "quotedName" : "lib/Foswiki/Logger/RabbitMQLogger/EventIterator.pm",
+         "permissions" : "0444",
+         "description" : "",
+         "md5" : "dbc77447ad6ff3fd05ee7ba22debd597",
+         "name" : "lib/Foswiki/Logger/RabbitMQLogger/EventIterator.pm"
+      },
+      {
+         "quotedName" : "lib/Foswiki/Logger/RabbitMQLogger/Reader.pm",
+         "md5" : "e87aaef93ff90959ef5469d702bd6bc4",
+         "description" : "",
+         "name" : "lib/Foswiki/Logger/RabbitMQLogger/Reader.pm",
+         "permissions" : "0444"
+      },
+      {
+         "quotedName" : "lib/Foswiki/Logger/RabbitMQLogger.pm",
+         "permissions" : "0444",
+         "name" : "lib/Foswiki/Logger/RabbitMQLogger.pm",
+         "md5" : "048e348149d4d48243fa0707f10606af",
+         "description" : ""
+      },
+      {
+         "md5" : "3513f27d573f02869d2e2acc3ca382de",
+         "description" : "",
+         "name" : "lib/Foswiki/Contrib/RabbitLoggerContrib/build.pl",
+         "permissions" : "0554",
+         "quotedName" : "lib/Foswiki/Contrib/RabbitLoggerContrib/build.pl"
+      },
+      {
+         "quotedName" : "lib/Foswiki/Contrib/RabbitLoggerContrib/Config.spec",
+         "permissions" : "0444",
+         "name" : "lib/Foswiki/Contrib/RabbitLoggerContrib/Config.spec",
+         "md5" : "5b65e38e5f9f19b73aa3bca71114fb9b",
+         "description" : ""
+      },
+      {
+         "quotedName" : "lib/Foswiki/Contrib/RabbitLoggerContrib.pm",
+         "description" : "",
+         "md5" : "02dbd692e6f67b30d142a2e133486224",
+         "name" : "lib/Foswiki/Contrib/RabbitLoggerContrib.pm",
+         "permissions" : "0444"
+      },
+      {
+         "description" : "",
+         "md5" : "",
+         "name" : "resources/gologger/logstore",
+         "permissions" : "0655",
+         "quotedName" : "resources/gologger/logstore"
+      },
+      {
+         "permissions" : "0655",
+         "md5" : "",
+         "name" : "resources/gologger/logreport",
+         "description" : "",
+         "quotedName" : "resources/gologger/logreport"
+      },
+      {
+         "md5" : "",
+         "description" : "",
+         "name" : "tools/logtail",
+         "permissions" : "0655",
+         "quotedName" : "tools/logtail"
+      },
+      {
+         "permissions" : "0655",
+         "description" : "",
+         "md5" : "",
+         "name" : "tools/logdump",
+         "quotedName" : "tools/logdump"
+      },
+      {
+         "name" : "RabbitLoggerContrib_installer",
+         "description" : "Install script",
+         "permissions" : 504
+      }
+   ],
+   "date" : "2019-05-21T13:12:17Z"
+}

@@ -4,7 +4,7 @@ After=network.target
 
 [Service]
 EnvironmentFile=/etc/default/logreport
-Environment=RAVEN_DVN=
+Environment=SENTRY_DSN=
 User=www-data
 ExecStart=/usr/local/bin/logreport
 Restart=on-failure
