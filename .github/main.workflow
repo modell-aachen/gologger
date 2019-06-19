@@ -11,7 +11,8 @@ action "Build" {
 
 action "Publish" {
   uses = "elgohr/Github-Hub-Action@1.0"
-  args = "release create $(date +%Y%m%d%H%M%S) -a cmd/logstore/logstore -a cmd/logtail/logtail -a cmd/logreport/logreport -a cmd/logdump/logdump"
+  args = "release create $(date +%Y%m%d%H%M%S) -m 'test' -a cmd/logstore/logstore -a cmd/logtail/logtail -a cmd/logreport/logreport -a cmd/logdump/logdump"
+  runs = "hub"
   needs = ["Build"]
   secrets = ["GITHUB_TOKEN"]
 }
