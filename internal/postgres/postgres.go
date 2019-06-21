@@ -115,17 +115,23 @@ sudo -u postgres psql -c "CREATE DATABASE 'foswiki_logs' WITH ENCODING 'UTF8' LC
 
 func CreateInstance() (interfaces.LogStore, error) {
 	user := os.Getenv("POSTGRES_USER")
-	if user == "" {
-		return nil, errors.New("POSTGRES_USER not set")
-	}
 	password := os.Getenv("POSTGRES_PASSWORD")
+	socket := os.Getenv("POSTGRES_SOCKET")
+	if user == "" && socket == "" {
+		return nil, errors.New("Set either POSTGRES_USER with POSTGRES_PASSWORD or POSTGRES_SOCKET")
+	}
 
-	err := setupDatabase(user, password)
+	err := setupDatabase(user, password, socket)
 	if err != nil {
 		return nil, err
 	}
 
-	psqlInfo := fmt.Sprintf("dbname=%s sslmode=disable user='%s' password='%s'", dbname, user, password)
+	var psqlInfo string
+	if user != "" {
+		psqlInfo = fmt.Sprintf("dbname=%s sslmode=disable user='%s' password='%s'", dbname, user, password)
+	} else {
+		psqlInfo = fmt.Sprintf("dbname=%s sslmode=disable host=%s", dbname, socket)
+	}
 	db, err := sql.Open("postgres", psqlInfo)
 
 	err = db.Ping()
@@ -183,8 +189,13 @@ func setupTables(db *sql.DB) error {
 	return nil
 }
 
-func setupDatabase(user string, password string) error {
-	psqlInfo := fmt.Sprintf("dbname=%s sslmode=disable user='%s' password='%s'", "postgres", user, password)
+func setupDatabase(user string, password string, socket string) error {
+	var psqlInfo string
+	if user != "" {
+		psqlInfo = fmt.Sprintf("dbname=%s sslmode=disable user='%s' password='%s'", "postgres", user, password)
+	} else {
+		psqlInfo = fmt.Sprintf("dbname=%s sslmode=disable host=%s", "postgres", socket)
+	}
 	db, err := sql.Open("postgres", psqlInfo)
 	if err != nil {
 		return err
