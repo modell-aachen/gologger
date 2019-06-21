@@ -1,0 +1,17 @@
+[Unit]
+Description=Modell Aachen log persister
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/logstore
+Environment=RABBIT_USER=
+Environment=RABBIT_PASSWORD=
+Environment=POSTGRES_USER=
+Environment=POSTGRES_PASSWORD=
+Environment=POSTGRES_SOCKET=
+User=www-data
+ExecStart=/usr/local/bin/logstore
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

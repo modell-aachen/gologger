@@ -1,0 +1,15 @@
+[Unit]
+Description=Modell Aachen log reporter
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/default/logreport
+Environment=SENTRY_DSN=
+Environment=RABBIT_USER=
+Environment=RABBIT_PASSWORD=
+User=www-data
+ExecStart=/usr/local/bin/logreport
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
