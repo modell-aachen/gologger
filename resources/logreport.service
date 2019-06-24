@@ -1,6 +1,7 @@
 [Unit]
 Description=Modell Aachen log reporter
-After=network.target
+After=rabbitmq-server.service
+Requires=rabbitmq-server.service
 
 [Service]
 EnvironmentFile=/etc/default/logreport
