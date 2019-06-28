@@ -2,6 +2,7 @@ package interfaces
 
 import (
 	"encoding/json"
+	"fmt"
 	"time"
 
 	"github.com/streadway/amqp"
@@ -81,11 +82,38 @@ type SourceString string
 
 type LogFields []string
 
-func (logMetadata *LogMetadata) XUnmarshalJSON(bytes []byte) (err error) {
-	var data map[string]string
+func (logFields *LogFields) UnmarshalJSON(bytes []byte) (err error) {
+	var data []interface{}
 	err = json.Unmarshal(bytes, &data)
 	if err != nil {
-		*logMetadata = LogMetadata(data)
+		return err
+	}
+	strings := (LogFields)(make([]string, len(data)))
+	*logFields = strings
+	for idx, value := range data {
+		stringValue, ok := value.(string)
+		if !ok {
+			stringValue = fmt.Sprint(value)
+		}
+		strings[idx] = stringValue
+	}
+	return err
+}
+
+func (logGeneric *LogGeneric) UnmarshalJSON(bytes []byte) (err error) {
+	var data map[string]interface{}
+	err = json.Unmarshal(bytes, &data)
+	if err != nil {
+		return err
+	}
+	strings := (LogGeneric)(make(map[string]string))
+	*logGeneric = strings
+	for key, value := range data {
+		stringValue, ok := value.(string)
+		if !ok {
+			stringValue = fmt.Sprint(value)
+		}
+		strings[key] = stringValue
 	}
 	return err
 }
